@@ -1,0 +1,45 @@
+services:
+  
+  api1:
+    build: ./api
+    ports:
+      - "4001:4000"
+    environment:
+      - SERVER_NAME=api1
+
+  api2:
+    build: ./api
+    ports:
+      - "4002:4000"
+    environment:
+      - SERVER_NAME=api2
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  mongo:
+    image: mongo:7
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+      - frontend
+
+volumes:
+  mongo_data:

@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Environment — keep .env.example committed
+.env*
+!.env.example
+
+# Build output
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime / process
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Test & coverage
+coverage/
+.nyc_output/
+junit.xml
+
+# Secrets & certs
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+
+# Databases (local dev)
+*.sqlite
+*.sqlite3
+*.db
+
+# File uploads & temp
+uploads/
+tmp/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.sw?
+
+# Optional: lock files (decide per project)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
